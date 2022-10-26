@@ -1,9 +1,15 @@
 <header>
   <nav>
     <ul>
-      <li routerLinkActive="active" routerLink="/">Home</li>
-      <li routerLink="/conventer">Conventer</li>
-      <li routerLink="/currency">Currency</li>
+      <li
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLink="/"
+      >
+        Home
+      </li>
+      <li routerLinkActive="active" routerLink="/conventer">Conventer</li>
+      <li routerLinkActive="active" routerLink="/currency">Currency</li>
     </ul>
   </nav>
 </header>

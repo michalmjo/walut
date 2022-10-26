@@ -3,7 +3,10 @@
     <span class="currency-wrapper--base_span">Kurs po przeliczeniu za: 1 </span
     >{{ base }}
   </div>
-  <div class="currency-wrapper--price" *ngFor="let item of loadingCurency">
-    {{ item }}
+  <div
+    class="currency-wrapper--price"
+    *ngFor="let item of loadingCurency; let i = index"
+  >
+    {{ i + 1 }}: {{ item.slice(0, 10) }}
   </div>
 </div>

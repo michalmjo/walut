@@ -6,8 +6,22 @@
   margin: 50px;
   &--base {
     font-size: 3rem;
+    background-color: #2195f3;
+    border-radius: 10px;
+    padding: 10px;
     &_span {
-      color: blue;
+      color: rgb(255, 255, 255);
+    }
+  }
+  &--price {
+    border-radius: 10px;
+    width: 100%;
+    background-color: rgba(59, 125, 175, 0.059);
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 2rem;
+    &:nth-child(odd) {
+      background-color: rgba(127, 255, 212, 0.121);
     }
   }
 }
