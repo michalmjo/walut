@@ -30,7 +30,18 @@ export class CurrencyComponent implements OnInit {
       //   }));
       //   console.log(this.loadingCurency);
       // });
-      .pipe(tap(console.log))
+
+      .pipe(
+        tap(console.log),
+        map((data) => {
+          const newArray = [];
+          for (const [key, value] of Object.entries(data.rates)) {
+            console.log(`${key}: ${value}`);
+            newArray.push(`${key}: ${value}`);
+          }
+          return newArray;
+        })
+      )
       .subscribe((data) => (this.loadingCurency = data));
   }
 }
