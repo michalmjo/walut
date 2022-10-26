@@ -1,1 +1,37 @@
-<p>conventer works!</p>
+<h1>Conventer Currency</h1>
+
+<form *ngIf="rates">
+  <label for="">
+    number
+    <input
+      type="text"
+      placeholder="amount"
+      [(ngModel)]="amount"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </label>
+
+  <label for="">From: </label>
+  <select
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="from"
+    (change)="loadRates()"
+  >
+    <option *ngFor="let currency of getAllCurrencies()" [value]="currency">
+      {{ currency }}
+    </option>
+  </select>
+
+  <label for="">To: </label>
+  <select [ngModelOptions]="{ standalone: true }" [(ngModel)]="to">
+    <option *ngFor="let currency of getAllCurrencies()" [value]="currency">
+      {{ currency }}
+    </option>
+  </select>
+
+  <br />
+
+  <b *ngIf="amount >= 1"
+    >{{ amount }} {{ from }} = {{ conventer().toFixed(2) }} {{ to }}</b
+  >
+</form>

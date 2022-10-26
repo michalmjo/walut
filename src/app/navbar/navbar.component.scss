@@ -1,0 +1,23 @@
+header {
+  background-color: rgba(5, 5, 17, 0.47);
+}
+
+ul {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  list-style: none;
+}
+
+li {
+  padding: 10px;
+  font-size: 1.9rem;
+  /* font-weight: bold; */
+  cursor: pointer;
+  transition: all 0.4s;
+  text-transform: uppercase;
+}
+
+li:hover {
+  color: crimson;
+}
