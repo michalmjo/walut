@@ -10,17 +10,25 @@ export class ConventerComponent implements OnInit {
   amount = 1;
   from = 'PLN';
   to = 'USD';
-  rate = 0.21;
+  rates!: { [key: string]: number };
 
-  constructor(private currencyService: ExchangeRatesService) {
-    this.currencyService
-      .getRates(this.from)
-      .subscribe((data) => console.log(data));
+  constructor(private currencyService: ExchangeRatesService) {}
+
+  ngOnInit(): void {
+    this.loadRates();
   }
 
-  ngOnInit(): void {}
+  getAllCurrencies(): string[] {
+    return Object.keys(this.rates);
+  }
+
+  loadRates() {
+    this.currencyService
+      .getRates(this.from)
+      .subscribe((data) => (this.rates = data.rates));
+  }
 
   conventer(): number {
-    return this.amount * this.rate;
+    return this.amount * this.rates[this.to];
   }
 }

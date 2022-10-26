@@ -1,6 +1,6 @@
 <h1>Conventer Currency</h1>
 
-<form>
+<form *ngIf="rates">
   <label for="">
     number
     <input
@@ -11,8 +11,24 @@
     />
   </label>
 
-  <label for="">From: </label> <span>{{ from }}</span>
-  <label for="">To: </label> <span>{{ to }}</span>
+  <label for="">From: </label>
+  <select
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="from"
+    (change)="loadRates()"
+  >
+    <option *ngFor="let currency of getAllCurrencies()" [value]="currency">
+      {{ currency }}
+    </option>
+  </select>
+
+  <label for="">To: </label>
+  <select [ngModelOptions]="{ standalone: true }" [(ngModel)]="to">
+    <option *ngFor="let currency of getAllCurrencies()" [value]="currency">
+      {{ currency }}
+    </option>
+  </select>
+
   <br />
 
   <b *ngIf="amount >= 1"
