@@ -7,15 +7,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ExchangeRatesService {
+  // https://api.exchangerate.host/latest?base=${base}
+
   constructor(private http: HttpClient) {}
   getRates(base: string): Observable<ExchangeRatesResponse> {
+    // return this.http.get<ExchangeRatesResponse>(
+    //   `https://api.apilayer.com/exchangerates_data/latest?base=${base}`,
+    //   {
+    //     headers: {
+    //       apikey: 'htKqFqoX2k88WTmZ1TEfA8uAuW4zMqKa',
+    //     },
+    //   }
+    // );
+
     return this.http.get<ExchangeRatesResponse>(
-      `https://api.apilayer.com/exchangerates_data/latest?base=${base}`,
-      {
-        headers: {
-          apikey: 'htKqFqoX2k88WTmZ1TEfA8uAuW4zMqKa',
-        },
-      }
+      `https://api.exchangerate.host/latest?base=${base}`
     );
   }
 }
