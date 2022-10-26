@@ -2,6 +2,20 @@
 
 <form>
   <label for="">
-    <input type="text" name="" id="" />
+    number
+    <input
+      type="text"
+      placeholder="amount"
+      [(ngModel)]="amount"
+      [ngModelOptions]="{ standalone: true }"
+    />
   </label>
+
+  <label for="">From: </label> <span>{{ from }}</span>
+  <label for="">To: </label> <span>{{ to }}</span>
+  <br />
+
+  <b *ngIf="amount >= 1"
+    >{{ amount }} {{ from }} = {{ conventer().toFixed(2) }} {{ to }}</b
+  >
 </form>

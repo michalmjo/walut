@@ -11,10 +11,11 @@ ul {
 
 li {
   padding: 10px;
-  font-size: 2.6rem;
+  font-size: 1.9rem;
   /* font-weight: bold; */
   cursor: pointer;
   transition: all 0.4s;
+  text-transform: uppercase;
 }
 
 li:hover {

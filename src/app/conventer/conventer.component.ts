@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExchangeRatesService } from '../services/exchange-rates.service';
 
 @Component({
   selector: 'app-conventer',
@@ -6,16 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conventer.component.scss'],
 })
 export class ConventerComponent implements OnInit {
-  ammount = 1;
+  amount = 1;
   from = 'PLN';
   to = 'USD';
   rate = 0.21;
 
-  constructor() {}
+  constructor(private currencyService: ExchangeRatesService) {
+    this.currencyService
+      .getRates(this.from)
+      .subscribe((data) => console.log(data));
+  }
 
   ngOnInit(): void {}
 
   conventer(): number {
-    return this.ammount * this.rate;
+    return this.amount * this.rate;
   }
 }
