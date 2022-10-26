@@ -35,6 +35,7 @@ export class CurrencyComponent implements OnInit {
         tap(console.log),
         map((data) => {
           const newArray = [];
+
           for (const [key, value] of Object.entries(data.rates)) {
             console.log(`${key}: ${value}`);
             newArray.push(`${key}: ${value}`);
@@ -42,6 +43,9 @@ export class CurrencyComponent implements OnInit {
           return newArray;
         })
       )
-      .subscribe((data) => (this.loadingCurency = data));
+      .subscribe((data) => {
+        this.loadingCurency = data.slice(0, 100);
+        console.log(data);
+      });
   }
 }

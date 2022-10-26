@@ -1,4 +1,9 @@
-<p>currency works!</p>
-<div>
-  <div *ngFor="let item of loadingCurency">{{ item }}</div>
+<div class="currency-wrapper">
+  <div class="currency-wrapper--base">
+    <span class="currency-wrapper--base_span">Kurs po przeliczeniu za: 1 </span
+    >{{ base }}
+  </div>
+  <div class="currency-wrapper--price" *ngFor="let item of loadingCurency">
+    {{ item }}
+  </div>
 </div>

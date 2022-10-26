@@ -1,0 +1,13 @@
+:host {
+  text-align: center;
+}
+
+.currency-wrapper {
+  margin: 50px;
+  &--base {
+    font-size: 3rem;
+    &_span {
+      color: blue;
+    }
+  }
+}
